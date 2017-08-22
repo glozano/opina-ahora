@@ -1,0 +1,39 @@
+<head>
+    <meta charset='utf-8'>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://unpkg.com/vue"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500|Shrikhand" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="jquery.color-2.1.2.min.js"></script>
+</head>
+
+
+
+<div id="app">
+    <div class="landing" v-if="!gameon">
+        <button class="begin" v-on:click="begin"><span>COMENZAR</span></button>
+    </div>
+    <div class="arena" v-if="gameon">
+        <div class="subject">
+            <h1>{{subject}}</h1>
+        </div>
+        <div class="answer">
+            <div class="choice one" v-on:click="getSubject">
+                <div class="choice-text">
+                    {{choiceOne}}
+                </div>
+            </div>
+            <div class="choice two" v-on:click="getSubject">
+                <div class="choice-text">
+                    {{choiceTwo}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="gameover" v-if="gameover">
+        <span>GAME OVER</span>
+    </div>
+</div>
+
+<script src="app.js" charset="utf-8"></script>
