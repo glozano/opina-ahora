@@ -23,6 +23,8 @@ new Vue({
             this.getSubject();
         },
         getSubject: function () {
+            $('.subject').clearQueue();
+            $('.subject').stop();
             this.subject = this.subjects.splice(Math.floor(Math.random()*this.subjects.length), 1)[0];
             this['choiceOne'] = this.positives[Math.floor(Math.random()*this.positives.length)];
             this['choiceTwo'] = this.negatives[Math.floor(Math.random()*this.negatives.length)];
@@ -48,6 +50,10 @@ new Vue({
                 this.gameover=true;
             }
             this.subjectNumber++;
+            $('.subject').css('background-color','#ffeb3b');
+            $('.subject').animate({
+                backgroundColor: "#f95759"
+            }, 10000 );
         }
     }
 })
